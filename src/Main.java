@@ -8,5 +8,6 @@ public class Main {
         }
         aver /= 5000;
         System.out.println(aver);
+        System.out.println("Some shit, for example");
     }
 }
