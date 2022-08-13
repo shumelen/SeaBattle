@@ -1,4 +1,4 @@
-public class GameState {
+class GameState {
     boolean isFirstUnitMove, isGameOver, printBattleTrace, printResult;
     int gameMod;
 }

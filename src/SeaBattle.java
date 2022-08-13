@@ -247,24 +247,6 @@ public class SeaBattle {
     private void botMove(Unit attacker, Unit victim) {
         attacker.movesCount++;
         if (attacker.x == 0) {
-            do {
-                attacker.x = 1 + random.nextInt(SIZE);
-                attacker.y = 1 + random.nextInt(SIZE);
-            }
-            while (!(victim.field[attacker.x][attacker.y] == Cell.ship || victim.field[attacker.x][attacker.y] == Cell.empty));
-            if (victim.field[attacker.x][attacker.y] == Cell.empty) {
-                misHit(attacker, victim.field);
-                attacker.x = 0;
-            } else {
-                hit(attacker, victim);
-            }
-        } else {
-            finishingMove(attacker, victim);
-        }
-    }
-    private void cleverBotMove(Unit attacker, Unit victim) {
-        attacker.movesCount++;
-        if (attacker.x == 0) {
 
             int[][] observer = new int[11][11];
             boolean isClear;
@@ -396,10 +378,6 @@ public class SeaBattle {
     }
 
     public void play() {
-        /* game mods:
-         * 1 - PvP
-         * 2 - PvE
-         * */
         System.out.println("Select game mod (1-PvE, 2-PvP):");
         gameState.gameMod = scanner.nextInt();
         System.out.println("Type nickname for 1st player:");
@@ -427,21 +405,5 @@ public class SeaBattle {
         while (!gameState.isGameOver);
         if (unit1.shipsAliveCount() > 0) { System.out.println(" " + unit1.name + " won! " + unit1.movesCount + " moves"); }
         else { System.out.println(" " + unit2.name + " won! " + unit2.movesCount + " moves"); }
-    }
-    public int cleverBotTest() {
-        /*gameState.printResult = true;
-        gameState.printBattleTrace = true;*/
-        unit1.init();
-        unit2.init();
-        gameState.isGameOver = false;
-        do {
-            cleverBotMove(unit1, unit2);
-            /*botMove(unit2, unit1)*/
-            if (gameState.printBattleTrace) { showPublicBattleField(); }
-        }
-        while (!gameState.isGameOver);
-        if (gameState.printResult) { System.out.println(" " + unit1.name + " won! " + unit1.movesCount + " moves"); }
-        /*else*/
-        return unit1.movesCount;
     }
 }

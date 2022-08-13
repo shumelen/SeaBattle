@@ -47,7 +47,7 @@ public class Unit {
         return true;
     }
 
-    public Unit() {
+    Unit() {
         for (int i = 0; i < SeaBattle.SIZE + 2; i++) {
             field[0][i] = Cell.border;
             field[i][0] = Cell.border;
@@ -55,7 +55,7 @@ public class Unit {
             field[i][SeaBattle.SIZE + 1] = Cell.border;
         }
     }
-    public void init() {
+    void init() {
         for (int i = 1; i <= SeaBattle.SIZE; i++) {
             for (int j = 1; j <= SeaBattle.SIZE; j++) {
                 field[i][j] = Cell.empty;
@@ -69,8 +69,8 @@ public class Unit {
         x = 0;
         movesCount = 0;
     }
-    public int shipsAliveCount() { return currentFleet[0]; }
-    public int maxAliveShipLength() {
+    int shipsAliveCount() { return currentFleet[0]; }
+    int maxAliveShipLength() {
         int length = 4;
         while (true) {
             if (currentFleet[length] > 0) { return length; }

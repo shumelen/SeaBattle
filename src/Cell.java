@@ -1,4 +1,4 @@
-public class Cell {
+class Cell {
     static char border = '|';
     static char empty = ':';
     static char ship = 'H';
