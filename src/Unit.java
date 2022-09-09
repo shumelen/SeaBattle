@@ -4,7 +4,7 @@ public class Unit {
     final char[][] field = new char[12][12];
     Direction moveDirection;
     int x, y, dx, dy, movesCount;
-    String name = "bot_" + String.valueOf(this.hashCode() % 100);
+    String name = "#Bot";
 
     private void setShips(int length, int count) {
         final int MAX_SET_TRIES = 2000;

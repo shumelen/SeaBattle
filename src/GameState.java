@@ -1,4 +1,4 @@
 class GameState {
-    boolean isFirstUnitMove, isGameOver, printBattleTrace, printResult;
-    int gameMod;
+    boolean isFirstUnitMove, isGameOver;
+    GameMode gameMode;
 }
